@@ -14,13 +14,13 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Prueba dropwizard</name>
+    <name>testApplicationDropwizard</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <dropwizard.version>1.3.1</dropwizard.version>
-        <mainClass>com.lgior.Prueba dropwizardApplication</mainClass>
+        <mainClass>com.lgior.TestApplication</mainClass>
     </properties>
 
     <dependencyManagement>
