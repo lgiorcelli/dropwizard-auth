@@ -2,3 +2,8 @@ logging:
   level: INFO
   loggers:
     lgior: DEBUG
+server:
+  type: simple
+  connector:
+    type: http
+    port: 9000
