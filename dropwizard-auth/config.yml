@@ -4,6 +4,7 @@ logging:
     lgior: DEBUG
 server:
   type: simple
+  applicationContextPath: /api
   connector:
     type: http
     port: 9000

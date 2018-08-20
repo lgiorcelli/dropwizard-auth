@@ -1,5 +1,7 @@
 package com.lgior;
 
+import com.lgior.resources.HelloWorldResource;
+
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -23,7 +25,9 @@ public class TestApplication extends Application<TestAppConfiguration> {
     @Override
     public void run(final TestAppConfiguration configuration,
                     final Environment environment) {
-        // TODO: implement application
-    }
+		HelloWorldResource resource = new HelloWorldResource();
+
+		environment.jersey().register(resource);
+	}
 
 }
