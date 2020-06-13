@@ -1,4 +1,4 @@
-package lgior
+package com.lgior
 
 import org.junit.Test
 import kotlin.test.assertEquals
