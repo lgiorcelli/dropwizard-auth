@@ -2,6 +2,7 @@ package com.lgior.app
 
 import com.lgior.resources.HelloFromKotlin
 import com.lgior.resources.HelloWorldResource
+import com.lgior.usecases.SayHello
 import io.dropwizard.Application
 import io.dropwizard.setup.Bootstrap
 import io.dropwizard.setup.Environment
@@ -18,7 +19,10 @@ class TestApplication : Application<TestAppConfiguration?>() {
     override fun run(configuration: TestAppConfiguration?,
                      environment: Environment) {
         val resource = HelloWorldResource()
-        val helloFromKotlin = HelloFromKotlin()
+
+        val sayHello = SayHello()
+        val helloFromKotlin = HelloFromKotlin(sayHello)
+
         environment.jersey().register(resource)
         environment.jersey().register(helloFromKotlin)
     }
