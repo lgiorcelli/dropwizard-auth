@@ -4,12 +4,14 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>lgior</groupId>
-    <artifactId>delivery</artifactId>
-    <version>1.0.0</version>
-    <packaging>jar</packaging>
+    <parent>
+        <groupId>lgior</groupId>
+        <artifactId>dropwizard-auth</artifactId>
+        <version>1.0.0</version>
+    </parent>
 
-    <name>lgior delivery</name>
+    <artifactId>delivery</artifactId>
+    <name>delivery</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -59,6 +61,37 @@
 
     <build>
         <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>${mainClass}</mainClass>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <classpathLayoutType>repository</classpathLayoutType>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.hubspot.maven.plugins</groupId>
+                <artifactId>slimfast-plugin</artifactId>
+                <version>0.19</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--
             <plugin>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.4</version>
@@ -72,7 +105,7 @@
                             <mainClass>${mainClass}</mainClass>
                         </transformer>
                     </transformers>
-                    <!-- exclude signed Manifests -->
+                    <- exclude signed Manifests
                     <filters>
                         <filter>
                             <artifact>*:*</artifact>
@@ -94,6 +127,8 @@
                     </execution>
                 </executions>
             </plugin>
+            -->
+
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
